@@ -6,7 +6,7 @@ const useVisitsTableColumns = () => {
   return [
     {
       id: 'dayOfWeek',
-      header: t('day_of_week') || 'Day of Week',
+      header: t('day_of_week'),
       size: 150,
       accessorFn: (row) => row.dayOfWeek,
       enableGrouping: true,
@@ -16,7 +16,7 @@ const useVisitsTableColumns = () => {
     },
     {
       id: 'date',
-      header: t('date') || 'Date',
+      header: t('date'),
       size: 150,
       accessorFn: (row) => row.date,
       enableGrouping: false,
@@ -29,7 +29,7 @@ const useVisitsTableColumns = () => {
     },
     {
       id: 'visits',
-      header: t('visits') || 'Visits',
+      header: t('visits'),
       size: 120,
       accessorFn: (row) => row.visits,
       enableGrouping: false,
@@ -42,7 +42,7 @@ const useVisitsTableColumns = () => {
     },
     {
       id: 'actions',
-      header: t('actions') || 'Actions',
+      header: t('actions'),
       size: 120,
       accessorFn: () => null,
       enableSorting: false,

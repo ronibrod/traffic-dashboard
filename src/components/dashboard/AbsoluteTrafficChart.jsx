@@ -14,9 +14,11 @@ import {
 } from '@mui/material';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import { useTranslation } from 'react-i18next';
 import { groupTrafficData } from '../../utils/trafficLogic';
 
 const AbsoluteTrafficChart = ({ data }) => {
+  const { t } = useTranslation();
   const [type, setType] = useState('line');
   const [xAxisType, setXAxisType] = useState('day');
 
@@ -33,7 +35,7 @@ const AbsoluteTrafficChart = ({ data }) => {
         mb={1}
       >
         <Typography variant="subtitle2" mt={-2}>
-          {'Total Visits by Date'}
+          {t('total_visits_by_date')}
         </Typography>
 
         <Stack direction="row" gap={4}>
@@ -43,9 +45,9 @@ const AbsoluteTrafficChart = ({ data }) => {
               value={xAxisType}
               onChange={(e) => setXAxisType(e.target.value)}
             >
-              <option value="day">Day</option>
-              <option value="week">Week</option>
-              <option value="month">Month</option>
+              <option value="day">{t('day')}</option>
+              <option value="week">{t('week')}</option>
+              <option value="month">{t('month')}</option>
             </Select>
           </FormControl>
 
