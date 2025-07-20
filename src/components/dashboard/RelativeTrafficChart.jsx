@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import PieChartOutlineIcon from '@mui/icons-material/PieChartOutline';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import { useTranslation } from 'react-i18next';
 import { getRelativeTrafficData } from '../../utils/trafficLogic';
 
 const COLORS = [
@@ -33,9 +34,9 @@ const COLORS = [
 ];
 
 const RelativeTrafficChart = ({ data }) => {
+  const { t } = useTranslation();
   const [type, setType] = useState('pie');
   const [groupBy, setGroupBy] = useState('dayOfWeek');
-  const title = 'Relative Visit Distribution';
 
   const relativeData = getRelativeTrafficData(data, groupBy);
 
@@ -50,16 +51,16 @@ const RelativeTrafficChart = ({ data }) => {
       >
         <Stack height='100%' width='25%' justifyContent="space-between">
           <Stack gap={3}>
-            <Typography variant="subtitle2">{title}</Typography>
+            <Typography variant="subtitle2">{t('relative_visit_distribution')}</Typography>
 
             <Select
               size="small"
               value={groupBy}
               onChange={(e) => setGroupBy(e.target.value)}
             >
-              <MenuItem value="dayOfWeek">Day of Week</MenuItem>
-              <MenuItem value="dayOfMonth">Day in Month</MenuItem>
-              <MenuItem value="month">Month</MenuItem>
+              <MenuItem value="dayOfWeek">{t('day_of_week')}</MenuItem>
+              <MenuItem value="dayOfMonth">{t('day_in_month')}</MenuItem>
+              <MenuItem value="month">{t('month_of_year')}</MenuItem>
             </Select>
           </Stack>
 

@@ -169,7 +169,7 @@ const VisitsTable = ({ data, mutate }) => {
       }}
     >
       <Stack direction='row' justifyContent='space-between'>
-        <Typography variant="h6" mb={1}>Visits Table</Typography>
+        <Typography variant="h6" mb={1}>{t('visits_table')}</Typography>
 
         <Button
           variant="outlined"

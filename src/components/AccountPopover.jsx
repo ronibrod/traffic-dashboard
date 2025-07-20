@@ -47,7 +47,7 @@ const AccountPopover = ({ anchorEl, onClose }) => {
       <Divider sx={{ my: 1 }} />
 
       <Button fullWidth variant="outlined" onClick={handleLogout}>
-        Logout
+        {t('login.logout')}
       </Button>
     </Popover>
   );
