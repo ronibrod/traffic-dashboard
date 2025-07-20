@@ -1,0 +1,27 @@
+export default {
+  login: {
+    login: "Login",
+    login_with_google: "Login with Google",
+    email: "Email",
+    password: "Password",
+    enter:  "Enter",
+    login_attempt_failed: "Login attempt failed",
+  },
+  day_of_week: "Day of Week",
+  date: "Date",
+  visits: "Visits",
+  actions: "Actions",
+  from: "From",
+  to: "To",
+  min: "Min",
+  max: "Max",
+  search: "Search",
+  unknown_user: "unknown user",
+  no_email: "no email",
+  got_it: "got it!",
+  stay_tuned_for_future_updates: "stay tuned for future updates",
+  upload_json: "upload json",
+  upload_traffic_json: "upload traffic json",
+  choose_file: "choose file",
+  upload_hint: "Only .json files with array of objects like [{ date, visits }]"
+}
