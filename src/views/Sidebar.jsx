@@ -5,6 +5,8 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  MenuItem,
+  Popover,
   Typography,
 } from '@mui/material'
 import DashboardIcon from '@mui/icons-material/Dashboard'
@@ -18,6 +20,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import AccountPopover from '../components/AccountPopover'
 import ComingSoonDialog from '../components/ComingSoonDialog'
+import LanguagePopover from '../components/LanguagePopover'
 
 const Sidebar = () => {
   const { t } = useTranslation()
@@ -95,6 +98,8 @@ const Sidebar = () => {
           </ListItemIcon>
           <ListItemText primary={t('settings')} />
         </ListItem>
+
+        <LanguagePopover />
 
         <ListItem button onClick={handleOpenAccountPopover}>
           <ListItemIcon>

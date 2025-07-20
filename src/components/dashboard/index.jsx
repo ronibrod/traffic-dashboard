@@ -35,8 +35,8 @@ const DashboardManagement = () => {
   const totalVisits = data?.length ? data.reduce((sum, item) => sum + item.visits, 0) : 0;
   const averageVisits = data?.length ? (totalVisits / data.length).toFixed(1) : 0;
 
-  if (isLoading) return <Typography>{t('loading') || 'Loading...'}</Typography>;
-  if (error) return <Typography color="error">{t('error_loading_data') || 'Failed to load data'}</Typography>;
+  if (isLoading) return <Typography>{t('loading')}</Typography>;
+  if (error) return <Typography color="error">{t('error_loading_data')}</Typography>;
 
   return (
     <Stack
@@ -89,7 +89,7 @@ const DashboardManagement = () => {
           }}
         >
           <Typography variant="h6" color="text.secondary">
-            {t('no_traffic_data') || 'No traffic data available'}
+            {t('no_traffic_data')}
           </Typography>
         </Stack>
       ) : (
@@ -117,7 +117,7 @@ const DashboardManagement = () => {
                   justifyContent="center"
                 >
                   <Typography variant="subtitle1" fontWeight={600}>
-                    {t('total_visits') || 'Total Visits'}
+                    {t('total_visits')}
                   </Typography>
                   <Typography variant="h6" color="primary.main">
                     {totalVisits}
@@ -133,7 +133,7 @@ const DashboardManagement = () => {
                   justifyContent="center"
                 >
                   <Typography variant="subtitle1" fontWeight={600}>
-                    {t('average_visits') || 'Average Visits'}
+                    {t('average_visits')}
                   </Typography>
                   <Typography variant="h6" color="secondary.main">
                     {averageVisits}

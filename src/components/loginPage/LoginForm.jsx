@@ -4,12 +4,14 @@ import {
   Button,
   FormControl,
   Stack,
+  Typography,
   TextField,
   Divider,
 } from '@mui/material'
 import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 import { useUser } from '../../contexts/user'
+import ComingSoonDialog from '../ComingSoonDialog'
 
 export default function LoginForm() {
   const { signin, signup } = useUser()
@@ -20,7 +22,15 @@ export default function LoginForm() {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [submitError, setSubmitError] = React.useState(null)
-  const [googleError, setGoogleError] = React.useState(null)
+  const [comingSoonOpen, setComingSoonOpen] = React.useState(false)
+  const handleComingSoonOpen = () => setComingSoonOpen(true)
+  const handleComingSoonClose = () => setComingSoonOpen(false)
+  const handleOpenAccountPopover = (event) => {
+    setAccountAnchorEl(event.currentTarget)
+  }
+  const handleCloseAccountPopover = () => {
+    setAccountAnchorEl(null)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -41,15 +51,15 @@ export default function LoginForm() {
   }
 
   const handleSubmitLoginWithGoogle = async () => {
-    try {
-      window.location.href = '/api/auth/google'
-    } catch (error) {
-      setGoogleError(`Failed to open Google login: ${error.message}`)
-    }
+    handleOpenAccountPopover()
   }
 
   return (
     <Stack sx={{ alignItems: 'center', justifyContent: 'center' }}>
+      <Typography variant="h3">
+        {isSignup ? t('login.signup') : t('login.login')}
+      </Typography>
+
       <Button
         className="google-button"
         id="login-with-GOOGLE"
@@ -59,11 +69,7 @@ export default function LoginForm() {
         {t('login.login_with_google')}
       </Button>
 
-      {googleError && (
-        <Alert severity="error" sx={{ mt: 2 }}>
-          {googleError}
-        </Alert>
-      )}
+      <ComingSoonDialog open={comingSoonOpen} onClose={handleComingSoonClose} />
 
       <Divider textAlign="center" sx={{ my: 2 }}>
         {t('or')}
@@ -88,7 +94,7 @@ export default function LoginForm() {
                 fullWidth
                 id="company"
                 name="company"
-                label={t('login.company_name') || 'Company Name'}
+                label={t('login.company_name')}
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
               />
@@ -110,7 +116,7 @@ export default function LoginForm() {
           {submitError && (
             <Alert severity="error" sx={{ my: 2 }}>
               {submitError === 'unauthorized'
-                ? t('email_or_password_incorrect')
+                ? t('login.email_or_password_incorrect')
                 : t('login.login_attempt_failed')}
             </Alert>
           )}

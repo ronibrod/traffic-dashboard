@@ -25,10 +25,9 @@ export default function LoginPage() {
           p: 4,
         }}
       >
-      <Typography variant="h3">{t('login.login')}</Typography>
-      <div style={{ marginTop: '30px' }}>
+        <div style={{ marginTop: '30px' }}>
           <LoginForm />
-      </div>
+        </div>
       </Paper>
     </Stack>
   )
